@@ -1,5 +1,5 @@
 # -------------------------------------------------------------#
-# 			GeCKO - Domestication wheat - use case			   #
+#          GeCKO - Domestication wheat - use case	       #
 # -------------------------------------------------------------#
 
 
@@ -14,7 +14,7 @@ the first domesticated (solid rachis) form (T. turgidum dicoccum, n=30, DC), and
 depending on whether the varieties originated in the pre- or post-Green Revolution period. The first group consists of lines derived from local varieties called "Landraces" (DP, n=30), and the second 
 group consists of "elite" varieties registered in Europe after the Green Revolution (1970-1990; DE, n=30). 
 
-depot data Verse: XXX
+depot dataverse: XXX
 
 # -------------------------------------------------------------------------
 ### The Diversity Reduction Index (DRI) 
