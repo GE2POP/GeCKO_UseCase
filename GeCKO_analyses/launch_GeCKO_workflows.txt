@@ -1,0 +1,17 @@
+
+# DataCleaning
+cd DEV_Cap009.2b
+sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --workflow DataCleaning --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+
+cd ../DEV_Cap010.2
+sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --workflow DataCleaning --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+
+# ReadMapping
+cd ../DEV_Cap009_and_Cap010
+sbatch --partition=agap_long --mem=10G --job-name=RM --wrap="runGeCKO.sh --workflow ReadMapping --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+
+# VariantCalling
+sbatch --partition=agap_long --mem=10G --job-name=VC --wrap="runGeCKO.sh --workflow VariantCalling --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+
+# VcfFiltering
+sbatch --partition=agap_normal --mem=10G --job-name=VF --wrap="runGeCKO.sh --workflow VcfFiltering --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"

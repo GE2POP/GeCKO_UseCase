@@ -16,6 +16,31 @@ group consists of "elite" varieties registered in Europe after the Green Revolut
 
 depot dataverse: XXX
 
+
+
+###
+Reference: 
+
+download Triticum dicoccoides reference:
+https://www.ncbi.nlm.nih.gov/assembly/GCA_002162155.2
+deletion of non-positional scaffolds and simplification of the sequence names of the 14 chromosomes (example: ">chr1A")
+
+> Triticum_dicoccoides.WEWSeq_v.2.0.dna_20210617.fasta
+
+
+###
+
+Retrieve the files containing the raw data from the datavaerse: ADRESSE DATAVERSE !!!
+Clone the Gecko_UseCase github
+move the rawdata from DEV_Cap009.2b (DEV_Cap009.2b_R1.fastq.gz, DEV_Cap009.2b_R2.fastq.gz) to 
+
+, DEV_Cap010_R1.fastq.gz, DEV_Cap010_R2.fastq.gz. 
+
+
+
+
+
+
 # -------------------------------------------------------------------------
 ### The Diversity Reduction Index (DRI) 
 

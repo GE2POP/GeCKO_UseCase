@@ -29,7 +29,8 @@ mapping1 = {}
 mapping2 = {}
 with open(args.labels_file, "r") as f:
     for row in f:
-        pop, name, label = row.split()
+        pop, name = row.split()
+        label=name
         labels.append(pop)
         indivs.append(name)
         if pop not in mapping1: mapping1[pop] = []
@@ -47,6 +48,7 @@ with open(args.bed_file) as f:
 # SDM: open raw VCF (read manually) and get list of positions for each window
 raw_vcf = open(args.vcf_file_raw)
 line = raw_vcf.readline()
+print (line)
 while line[:2] == '##': line = raw_vcf.readline()
 line = line.split()
 if line[:9] != ['#CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'FORMAT']:

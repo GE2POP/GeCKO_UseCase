@@ -1,48 +1,19 @@
----
-title: "DRI"
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # input file
-```{r}
-tab=read.table("egglib_stats_10DD_10DC_10DP_10DE.txt", header=TRUE, sep="\t", na.strings = "None")
-```
-
+args<-commandArgs(TRUE)
+statFile=args[1]
+tab=read.table(statFile, header=TRUE, sep="\t", na.strings = "None")
 # column selection with Pi values (by contigs)
-```{r}
 tab_short<-tab[,c("chrom", "start","lseff","DD_Pi","DC_Pi","DP_Pi","DE_Pi")]
-```
-
 # format
-```{r}
 tab_short<-as.data.frame(tab_short)
-```
-
 # delete the 2 contigs on 2A and 7A that have a lseff<100bp x4
-```{r}
 tab_short=subset(tab_short, lseff>100)
-```
-
 # Calculation of Pi values by site
-To obtain the Pi values per site, we divide the Pi values per contig by the "lseff" value
-```{r}
 tab_site_short=tab_short
 tab_site_short$DD_Pi_site=(tab_site_short$DD_Pi)/(tab_site_short$lseff)
 tab_site_short$DC_Pi_site=(tab_site_short$DC_Pi)/(tab_site_short$lseff)
 tab_site_short$DP_Pi_site=(tab_site_short$DP_Pi)/(tab_site_short$lseff)
 tab_site_short$DE_Pi_site=(tab_site_short$DE_Pi)/(tab_site_short$lseff)
 
-```
-
 # Calculation DRI values
-```{r}
 summary(tab_site_short)
-```
-
-
