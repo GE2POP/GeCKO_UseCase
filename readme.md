@@ -33,7 +33,7 @@ This should be done on
 
 1. Copy the fastq.gz files dowloaded from the dataverse in the adequate RAWDATA folder 
 
-```
+```bash
 # for DEV_Cap009.2b
 cp dataverse_files/DEV_Cap009.2b_R1.fastq.gz DEV_Cap009.2b/RAWDATA
 cp dataverse_files/DEV_Cap009.2b_R2.fastq.gz DEV_Cap009.2b/RAWDATA
@@ -54,7 +54,7 @@ The only file you need to adapt is the cluster_config_WorkflowName.yml file used
 
 3. launch Gecko workflow
 Assuming you clone the GeCKO repository on your home directory, you shloud have a ~/GECKO folder containing GeCKO workflows and all analyses can be launch using (each command need to be finished before launching the next one):
-```
+```bash
 # DataCleaning
 cd DEV_Cap009.2b
 runGeCKO.sh --workflow DataCleaning --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM
@@ -74,7 +74,7 @@ runGeCKO.sh --workflow VcfFiltering --workflow-path ~/GECKO --jobs 50 --job-sche
 ```
 
 Note that this launch launches the commands on the master node, it is advise to launch the command as a job on our cluster, for the first datacleaing workflow, this look likes:
-``` 
+``` bash
 # DataCleaning
 cd DEV_Cap009.2b
 sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --workflow DataCleaning --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
@@ -84,7 +84,7 @@ sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --wor
 
 1. copy GeCKO output files in GeCKO_UseCase/Population_genetic_analyses/
 The files to be copied can be taken from GeCKO output folders (if you have reproduced the GeCKO analysis) or from the dataverse_file folder:
-```
+```bash
 cd GeCKO_UseCase/Population_genetic_analyses/
 
 cp ~/dataverse_files/variants_calling_converted.vcf.gz . 
@@ -103,7 +103,7 @@ gzip -d 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf.gz
 ```
 
 2. create conda environments
-```
+```bash
 # for egglib
 conda env create --file conda_UC_GECKO.yml
 # for R analyses
@@ -112,14 +112,14 @@ chmod +x GeCKO_use_case_*.sh
 ```
 
 3. compute population statistics
-```
+```bash
 conda activate UC-GECKO
 ./GeCKO_use_case_part1.sh
 conda deactivate
 ```
 
 4. Compute molecular diversity and Generate plots for Fst-scan and DAPC analysis
-```
+```bash
 conda activate UC-GECKO
 ./GeCKO_use_case_part1.sh
 conda deactivate
