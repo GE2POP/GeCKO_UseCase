@@ -18,13 +18,16 @@ group consists of "elite" varieties registered in Europe after the Green Revolut
 ### setting the environment
 
 1. Installing GeCKO (getting GeCKO workflows) 
+
 GeCKO workflows rely on snakemake, which ensures reproducible and scalable data analysis and make worflows installation straightforward since the only requirement is to have [snakemake](https://snakemake.readthedocs.io/en/stable/) and [conda](https://docs.conda.io/en/latest/) available on your environment (see [GeCKO install procedure](https://github.com/GE2POP/GeCKO#installation) for detailed information.
 
 2. Downloading dataset
+
 The input data needed to reproduce the use case analysis are provided in a [datagouv.fr dedicated repository](https://entrepot.recherche.data.gouv.fr/dataset.xhtml?persistentId=doi:10.57745/78MBZY)
 Note that this dataset contains input files needed to reproduce GeCKO analyses as well as GeCKO expected output files. The latter can be used to check GeCKO ran as expected or to reproduce the population genetic analysis without the need of runing GeCKO workflows. 
 
 3. clone the GeCKO use case github repository 
+
 By doing so you will get i) GeCKO config files for reproducing the use case, and ii) scripts and conda environment files to reproduce population genetic analysis
 ```git clone git@github.com:GE2POP/GeCKO_UseCase.git```
 
@@ -43,6 +46,7 @@ cp dataverse_files/DEV_Cap010.2_R2.fastq.gz  DEV_Cap010.2/RAWDATA
 ```
 
 2. Modify config files
+
 The information regarding the fastq files, read index etc. are, by default, retrieved from the config file CONFIG/config_WorkflowName.yml; all this is set with correct values to reproduce the use case analyses. 
 
 The only file you need to adapt is the cluster_config_WorkflowName.yml file used by default to provide specific cluster information (e.g. job queue names) related to this workflow:
@@ -53,6 +57,7 @@ The only file you need to adapt is the cluster_config_WorkflowName.yml file used
 - DEV_Cap009_and_Cap010/CONFIG/cluster_config_VcfFiltering.yml
 
 3. launch Gecko workflow
+
 Assuming you clone the GeCKO repository on your home directory, you shloud have a ~/GECKO folder containing GeCKO workflows and all analyses can be launch using (each command need to be finished before launching the next one):
 ```bash
 # DataCleaning
@@ -83,6 +88,7 @@ sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --wor
 ### reproducing population genetic analysis
 
 1. copy GeCKO output files in GeCKO_UseCase/Population_genetic_analyses/
+
 The files to be copied can be taken from GeCKO output folders (if you have reproduced the GeCKO analysis) or from the dataverse_file folder:
 ```bash
 cd GeCKO_UseCase/Population_genetic_analyses/
@@ -103,6 +109,7 @@ gzip -d 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf.gz
 ```
 
 2. create conda environments
+
 ```bash
 # for egglib
 conda env create --file conda_UC_GECKO.yml
@@ -112,6 +119,7 @@ chmod +x GeCKO_use_case_*.sh
 ```
 
 3. compute population statistics
+
 ```bash
 conda activate UC-GECKO
 ./GeCKO_use_case_part1.sh
@@ -119,6 +127,7 @@ conda deactivate
 ```
 
 4. Compute molecular diversity and Generate plots for Fst-scan and DAPC analysis
+
 ```bash
 conda activate UC-GECKO
 ./GeCKO_use_case_part1.sh
