@@ -155,14 +155,6 @@ conda deactivate
 ```
 Molecular diversity of each population is provided in DRI.tsv. DRI values can be obtained by taking the ratios between the molecular diversity computed for the two populations to compare. 
 
-###
-Reference: 
-
-download Triticum dicoccoides reference:
-https://www.ncbi.nlm.nih.gov/assembly/GCA_002162155.2
-deletion of non-positional scaffolds and simplification of the sequence names of the 14 chromosomes (example: ">chr1A")
-
-> Triticum_dicoccoides.WEWSeq_v.2.0.dna_20210617.fasta
 
 
 
