@@ -16,10 +16,10 @@ HaplotypeCaller:
 GenomicsDBImport:
     cpus-per-task: "{threads}"
     
-Plot_FinalVCFVariablesHistograms:
+Plot_GVCFVariablesHistograms:
     mem-per-cpu: 30G
     
-Plot_VCFDPBoxplot:
+Plot_GVCFDPBoxplot:
     mem-per-cpu: 30G
     
 Plot_GVCFVariantsAlongGenome:
