@@ -32,7 +32,7 @@ By doing so you will get i) GeCKO config files for reproducing the use case, and
 ```git clone git@github.com:GE2POP/GeCKO_UseCase.git```
 
 ### reproducing the GeCKO analysis (from raw reads to filtered VCF)
-This should be done on 
+This should be done on a cluster with SGE or SLURM available.
 
 1. Copy the fastq.gz files dowloaded from the dataverse in the adequate RAWDATA folder 
 
@@ -45,7 +45,27 @@ cp dataverse_files/DEV_Cap010.2_R1.fastq.gz  DEV_Cap010.2/RAWDATA
 cp dataverse_files/DEV_Cap010.2_R2.fastq.gz  DEV_Cap010.2/RAWDATA
 ```
 
-2. Modify config files
+2. get the wheat genome reference
+The genome is downloaded from NCBI, chromosome names are shorten and samtools are used to restrict the reference to the full chromosomes (eliminating remaining contigs/scafolds). As the wheat genome is very large (> 10 Gb) this is quite time consumming.
+
+If you don't have samtools on your HPC you can use the conda environment we provide:
+```bash
+conda env create --file conda_UC_GECKO_getRef.yml
+conda activate UC-GECKO-getRef
+chmod +x GeCKO_use_case_getWheatRef.sh
+./GeCKO_use_case_getWheatRef.sh
+conda deactivate
+```
+
+3. compute population statistics
+
+```bash
+conda activate UC-GECKO
+./GeCKO_use_case_part1.sh
+conda deactivate
+```
+
+3. Modify config files
 
 The information regarding the fastq files, read index etc. are, by default, retrieved from the config file CONFIG/config_WorkflowName.yml; all this is set with correct values to reproduce the use case analyses. 
 
@@ -56,7 +76,7 @@ The only file you need to adapt is the cluster_config_WorkflowName.yml file used
 - DEV_Cap009_and_Cap010/CONFIG/cluster_config_VariantCalling.yml
 - DEV_Cap009_and_Cap010/CONFIG/cluster_config_VcfFiltering.yml
 
-3. launch Gecko workflow
+4. launch Gecko workflow
 
 Assuming you clone the GeCKO repository on your home directory, you shloud have a ~/GECKO folder containing GeCKO workflows and all analyses can be launch using (each command need to be finished before launching the next one):
 ```bash
