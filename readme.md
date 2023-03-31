@@ -120,7 +120,7 @@ cp ~/dataverse_files/04__Genotype_Locus1_Sample_Locus2_Filtered.vcf.gz .
 # DEV_Cap009_and_Cap010/WORKFLOWS_OUTPUTS/VCF_FILTERING/
 
 cp ~/dataverse_files/zones.bed .
-#
+# DEV_Cap009_and_Cap010/WORKFLOWS_OUTPUTS/READ_MAPPING/EXTRACTED_BAMS/REFERENCE_zones
 
 cp ~/dataverse_files/labels_groups.txt .
 
