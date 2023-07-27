@@ -1,32 +1,32 @@
 # GeCKO - Domestication wheat - use case
 
 
-GeCKO provides four workflows (DataCleaning, ReadsMapping, VariantsCalling, and VcfFiltering), which allow one to easily chain the different analyses needed to transform raw reads into filtered genotypes (VCF file). This gitHub project focuses on the use cases detailed in the paper to illustrate the features of GeCKO through a step-by-step analysis that traces the impact of domestication on allele diversity in durum wheat.
+GeCKO provides four workflows (DataCleaning, ReadMapping, VariantCalling, and VcfFiltering), which allow one to easily chain the different analyses needed to transform raw reads into filtered genotypes (VCF file). This gitHub project focuses on the use cases detailed in the paper to illustrate the features of GeCKO through a step-by-step analysis that traces the impact of domestication on allele diversity in durum wheat.
 
 Below is a step by step guide to reproduce the use case analyses. For more information on the GeCKO project, please see the [GeCKO gitHub repository](https://github.com/GE2POP/GeCKO).
 
 *This dataset is quite large, if your goal is just to test your GeCKO installation please use the small test dataset provided in the EXAMPLE folder of each workflow (e.g. [data cleaning example](https://github.com/GE2POP/GeCKO)).*
 
 ## context
-We consider 120 accessions representing the three major subspecies involved in the transition steps described above (Figure 2); they represent the wild form T. turgidum dicoccoides (n=30, denoted DD), 
-the first domesticated (solid rachis) form (T. turgidum dicoccum, n=30, DC), and the non-hulled cultivated form, (T. turgidum durum, n=60). The latter subspecies has been divided into two subgroups 
-depending on whether the varieties originated in the pre- or post-Green Revolution period. The first group consists of lines derived from local varieties called "Landraces" (DP, n=30), and the second 
-group consists of "elite" varieties registered in Europe after the Green Revolution (1970-1990; DE, n=30). 
+We consider 120 accessions representing the three major subspecies involved in the transition steps described above (Figure 2); they represent the wild form T. turgidum dicoccoides (n=30, denoted DD),
+the first domesticated (solid rachis) form (T. turgidum dicoccum, n=30, DC), and the non-hulled cultivated form, (T. turgidum durum, n=60). The latter subspecies has been divided into two subgroups
+depending on whether the varieties originated in the pre- or post-Green Revolution period. The first group consists of lines derived from local varieties called "Landraces" (DP, n=30), and the second
+group consists of "elite" varieties registered in Europe after the Green Revolution (1970-1990; DE, n=30).
 
 ## reproducing the use case analyse
 
 ### setting the environment
 
-1. Installing GeCKO (getting GeCKO workflows) 
+1. Installing GeCKO (getting GeCKO workflows)
 
 GeCKO workflows rely on snakemake, which ensures reproducible and scalable data analysis and make worflows installation straightforward since the only requirement is to have [snakemake](https://snakemake.readthedocs.io/en/stable/) and [conda](https://docs.conda.io/en/latest/) available on your environment (see [GeCKO install procedure](https://github.com/GE2POP/GeCKO#installation) for detailed information.
 
 2. Downloading dataset
 
 The input data needed to reproduce the use case analysis are provided in a [datagouv.fr dedicated repository](https://entrepot.recherche.data.gouv.fr/dataset.xhtml?persistentId=doi:10.57745/78MBZY)
-Note that this dataset contains input files needed to reproduce GeCKO analyses as well as GeCKO expected output files. The latter can be used to check GeCKO ran as expected or to reproduce the population genetic analysis without the need of runing GeCKO workflows. 
+Note that this dataset contains input files needed to reproduce GeCKO analyses as well as GeCKO expected output files. The latter can be used to check GeCKO ran as expected or to reproduce the population genetic analysis without the need of runing GeCKO workflows.
 
-3. clone the GeCKO use case github repository 
+3. clone the GeCKO use case github repository
 
 By doing so you will get i) GeCKO config files for reproducing the use case, and ii) scripts and conda environment files to reproduce population genetic analysis
 ```git clone git@github.com:GE2POP/GeCKO_UseCase.git```
@@ -34,7 +34,7 @@ By doing so you will get i) GeCKO config files for reproducing the use case, and
 ### reproducing the GeCKO analysis (from raw reads to filtered VCF)
 This should be done on a cluster with SGE or SLURM available.
 
-1. Copy the fastq.gz files dowloaded from the dataverse in the adequate RAWDATA folder 
+1. Copy the fastq.gz files dowloaded from the dataverse in the adequate RAWDATA folder
 
 ```bash
 # for DEV_Cap009.2b
@@ -67,7 +67,7 @@ conda deactivate
 
 3. Modify config files
 
-The information regarding the fastq files, read index etc. are, by default, retrieved from the config file CONFIG/config_WorkflowName.yml; all this is set with correct values to reproduce the use case analyses. 
+The information regarding the fastq files, read index etc. are, by default, retrieved from the config file CONFIG/config_WorkflowName.yml; all this is set with correct values to reproduce the use case analyses.
 
 The only file you need to adapt is the cluster_config_WorkflowName.yml file used by default to provide specific cluster information (e.g. job queue names) related to this workflow:
 - DEV_Cap009.2b/CONFIG/cluster_config_DataCleaning.yml
@@ -113,7 +113,7 @@ The files to be copied can be taken from GeCKO output folders (if you have repro
 ```bash
 cd GeCKO_UseCase/Population_genetic_analyses/
 
-cp ~/dataverse_files/variants_calling_converted.vcf.gz . 
+cp ~/dataverse_files/variants_calling_converted.vcf.gz .
 # DEV_Cap009_and_Cap010/WORKFLOWS_OUTPUTS/VARIANTS_CALLING/GENOTYPE_GVCFS/
 
 cp ~/dataverse_files/04__Genotype_Locus1_Sample_Locus2_Filtered.vcf.gz .
@@ -153,11 +153,4 @@ conda activate UC-GECKO
 ./GeCKO_use_case_part1.sh
 conda deactivate
 ```
-Molecular diversity of each population is provided in DRI.tsv. DRI values can be obtained by taking the ratios between the molecular diversity computed for the two populations to compare. 
-
-
-
-
-
-
-
+Molecular diversity of each population is provided in DRI.tsv. DRI values can be obtained by taking the ratios between the molecular diversity computed for the two populations to compare.
