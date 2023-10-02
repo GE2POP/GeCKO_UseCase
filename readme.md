@@ -127,7 +127,7 @@ gzip -d 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf.gz
 conda env create --file conda_UC_GECKO.yml
 # for R analyses
 conda env create --file conda_UC_GECKO_R.yml
-chmod +x GeCKO_use_case_*.sh
+chmod +x *.sh
 ```
 
 3. compute population statistics
