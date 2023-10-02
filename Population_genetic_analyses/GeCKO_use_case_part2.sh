@@ -12,7 +12,7 @@ set -euo
 
 # four key output files produced by GeCKO for this use case and available on datagouv.fr
 # please uncompress them
-# 1. variants_calling_converted.vcf
+# 1. variant_calling_converted.vcf
 # 2. 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf (48 759 SNPs)
 # 3. zones.bed
 # 4. labels_groups.txt
