@@ -57,14 +57,6 @@ chmod +x GeCKO_use_case_getWheatRef.sh
 conda deactivate
 ```
 
-3. compute population statistics
-
-```bash
-conda activate UC-GECKO
-./GeCKO_use_case_part1.sh
-conda deactivate
-```
-
 3. Modify config files
 
 The information regarding the fastq files, read index etc. are, by default, retrieved from the config file CONFIG/config_WorkflowName.yml; all this is set with correct values to reproduce the use case analyses.
