@@ -141,8 +141,8 @@ conda deactivate
 4. Compute molecular diversity and Generate plots for Fst-scan and DAPC analysis
 
 ```bash
-conda activate UC-GECKO
-./GeCKO_use_case_part1.sh
+conda activate UC-GECKO_R
+./GeCKO_use_case_part2.sh
 conda deactivate
 ```
 Molecular diversity of each population is provided in DRI.tsv. DRI values can be obtained by taking the ratios between the molecular diversity computed for the two populations to compare.
