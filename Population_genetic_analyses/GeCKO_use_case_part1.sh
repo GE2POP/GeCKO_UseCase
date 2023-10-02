@@ -12,7 +12,7 @@ set -euo
 
 # four key output files produced by GeCKO for this use case and available on datagouv.fr
 # please uncompress them
-# 1. variants_calling_converted.vcf
+# 1. variant_calling_converted.vcf
 # 2. 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf (48 759 SNPs)
 # 3. zones.bed
 # 4. labels_groups.txt
@@ -23,7 +23,7 @@ set -euo
 # conda env create --file conda_UC_GECKO.yml
 # conda env create --file conda_UC_GECKO.yml
 
-cp variants_calling_converted.vcf  DurumWheat_GeCKO_unfiltered_onZavitan.vcf
+cp variant_calling_converted.vcf  DurumWheat_GeCKO_unfiltered_onZavitan.vcf
 cp 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf DurumWheat_GeCKO_filtered_onZavitan.vcf
 cp zones.bed DW_tarteged_zones.bed
 
