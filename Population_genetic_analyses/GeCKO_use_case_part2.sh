@@ -29,7 +29,7 @@ Rscript DRI.R egglib_stats_10perPop.txt > DRI.tsv
 
 beagle gt=DurumWheat_20perPop.vcf out=DurumWheat_20perPop_imputed
 gzip -d DurumWheat_20perPop_imputed.vcf.gz
-Rscript DAPC.R DurumWheat_20perPop_imputed.vcf labels_groups.txt
+Rscript PCA.R DurumWheat_20perPop_imputed.vcf labels_groups.txt
 
 #-------------------------------------------------------------------------
 ### Fst scan 5A and 4B loci

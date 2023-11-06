@@ -51,6 +51,7 @@ chr4B$FST_DD_DC=as.numeric(as.character(chr4B$FST_DD_DC))
 chr4B$FST_DC_DP=as.numeric(as.character(chr4B$FST_DC_DP))
 chr4B$FST_DP_DE=as.numeric(as.character(chr4B$FST_DP_DE))
 str(chr4B)
+
 #DD_DC (threshold value calculation + plot)
 DD_DC_chr4B_order=na.omit(chr4B$FST_DD_DC[order(chr4B$FST_DD_DC)])
 max(DD_DC_chr4B_order)
@@ -66,8 +67,8 @@ mean_DD_DC_chr4B=mean(chr4B$FST_DD_DC, na.rm=TRUE)
 pdf("Fst_scan_4B_DD_DC.pdf")
 ggplot(data=chr4B, aes(x=start_contigs, y=FST_DD_DC, group=contigs))+
   geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("grey70","red1"))+
-  scale_size_manual(values=c(1,2))+
+  scale_color_manual(values=c("red1","grey70"))+
+  scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDD_DC_chr4B_0.95,linetype="dashed", color = "red")+
   geom_hline(yintercept=mean_DD_DC_chr4B,linetype="dashed", color = "black")+
@@ -77,9 +78,9 @@ ggplot(data=chr4B, aes(x=start_contigs, y=FST_DD_DC, group=contigs))+
   theme(axis.text.y= element_text(size=15))+
   theme(axis.title.x = element_text(size=18))+
   theme(axis.title.y = element_text(size=18))
-#DC_DP (threshold value calculation + plot)
-dev.off() 
+dev.off()
 
+#DC_DP (threshold value calculation + plot)
 DC_DP_chr4B_order=na.omit(chr4B$FST_DC_DP[order(chr4B$FST_DC_DP)])
 max(DC_DP_chr4B_order)
 min(DC_DP_chr4B_order)
@@ -94,8 +95,8 @@ mean_DC_DP_chr4B=mean(chr4B$FST_DC_DP, na.rm=TRUE)
 pdf("Fst_scan_4B_DC_DP.pdf")
 ggplot(data=chr4B, aes(x=start_contigs, y=FST_DC_DP, group=contigs))+
   geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("grey70","red1"))+
-  scale_size_manual(values=c(1,2))+
+  scale_color_manual(values=c("red1","grey70"))+
+  scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDC_DP_chr4B_0.95,linetype="dashed", color = "red")+
   geom_hline(yintercept=mean_DC_DP_chr4B,linetype="dashed", color = "black")+
@@ -105,9 +106,9 @@ ggplot(data=chr4B, aes(x=start_contigs, y=FST_DC_DP, group=contigs))+
   theme(axis.text.y= element_text(size=15))+
   theme(axis.title.x = element_text(size=18))+
   theme(axis.title.y = element_text(size=18))
-#DP_DE (threshold value calculation + plot)
-dev.off() 
+dev.off()
 
+#DP_DE (threshold value calculation + plot)
 DP_DE_chr4B_order=na.omit(chr4B$FST_DP_DE[order(chr4B$FST_DP_DE)])
 max(DP_DE_chr4B_order)
 min(DP_DE_chr4B_order)
@@ -122,8 +123,8 @@ mean_DP_DE_chr4B=mean(chr4B$FST_DP_DE, na.rm=TRUE)
 pdf("Fst_scan_4B_DP_DE.pdf")
 ggplot(data=chr4B, aes(x=start_contigs, y=FST_DP_DE, group=contigs))+
   geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("grey70","red1"))+
-  scale_size_manual(values=c(1,2))+
+  scale_color_manual(values=c("red1","grey70"))+
+  scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDP_DE_chr4B_0.95,linetype="dashed", color = "red")+
   geom_hline(yintercept=mean_DP_DE_chr4B,linetype="dashed", color = "black")+
@@ -159,8 +160,8 @@ mean_DD_DC_chr5A=mean(chr5A$FST_DD_DC, na.rm=TRUE)
 pdf("Fst_scan_5A_DD_DC.pdf")
 ggplot(data=chr5A, aes(x=start_contigs, y=FST_DD_DC, group=contigs))+
   geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("grey70","blue1"))+
-  scale_size_manual(values=c(1,2))+
+  scale_color_manual(values=c("blue1","grey70"))+
+  scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDD_DC_chr5A_0.95,linetype="dashed", color = "red")+
   geom_hline(yintercept=mean_DD_DC_chr5A,linetype="dashed", color = "black")+
@@ -170,8 +171,9 @@ ggplot(data=chr5A, aes(x=start_contigs, y=FST_DD_DC, group=contigs))+
   theme(axis.text.y= element_text(size=15))+
   theme(axis.title.x = element_text(size=18))+
   theme(axis.title.y = element_text(size=18))
+dev.off()
+
 #DC_DP (threshold value calculation + plot)
-dev.off() 
 DC_DP_chr5A_order=na.omit(chr5A$FST_DC_DP[order(chr5A$FST_DC_DP)])
 max(DC_DP_chr5A_order)
 min(DC_DP_chr5A_order)
@@ -186,8 +188,8 @@ mean_DC_DP_chr5A=mean(chr5A$FST_DC_DP, na.rm=TRUE)
 pdf("Fst_scan_5A_DC_DP.pdf")
 ggplot(data=chr5A, aes(x=start_contigs, y=FST_DC_DP, group=contigs))+
   geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("grey70","blue1"))+
-  scale_size_manual(values=c(1,2))+
+  scale_color_manual(values=c("blue1","grey70"))+
+  scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDC_DP_chr5A_0.95,linetype="dashed", color = "red")+
   geom_hline(yintercept=mean_DC_DP_chr5A,linetype="dashed", color = "black")+
@@ -197,9 +199,9 @@ ggplot(data=chr5A, aes(x=start_contigs, y=FST_DC_DP, group=contigs))+
   theme(axis.text.y= element_text(size=15))+
   theme(axis.title.x = element_text(size=18))+
   theme(axis.title.y = element_text(size=18))
-#DP_DE (threshold value calculation + plot)
 dev.off() 
 
+#DP_DE (threshold value calculation + plot)
 DP_DE_chr5A_order=na.omit(chr5A$FST_DP_DE[order(chr5A$FST_DP_DE)])
 max(DP_DE_chr5A_order)
 min(DP_DE_chr5A_order)
@@ -214,8 +216,8 @@ mean_DP_DE_chr5A=mean(chr5A$FST_DP_DE, na.rm=TRUE)
 pdf("Fst_scan_5A_DP_DE.pdf")
 ggplot(data=chr5A, aes(x=start_contigs, y=FST_DP_DE, group=contigs))+
   geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("grey70","blue1"))+
-  scale_size_manual(values=c(1,2))+
+  scale_color_manual(values=c("blue1","grey70"))+
+  scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDP_DE_chr5A_0.95,linetype="dashed", color = "red")+
   geom_hline(yintercept=mean_DP_DE_chr5A,linetype="dashed", color = "black")+
