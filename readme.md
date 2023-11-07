@@ -138,7 +138,7 @@ conda activate UC-GECKO
 conda deactivate
 ```
 
-4. Compute molecular diversity and Generate plots for Fst-scan and DAPC analysis
+4. Compute molecular diversity and Generate plots for Fst-scan and PCA analysis
 
 ```bash
 conda activate UC-GECKO_R
