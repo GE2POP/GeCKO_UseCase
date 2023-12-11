@@ -14,7 +14,7 @@ set -euo
 # please uncompress them
 # 1. variant_calling_converted.vcf
 # 2. 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf (48 759 SNPs)
-# 3. zones.bed
+# 3. auto_zones.bed
 # 4. labels_groups.txt
 
 # egglib  files generates by GeCKO_use_case_part1.sh
@@ -25,7 +25,7 @@ set -euo
 Rscript DRI.R egglib_stats_10perPop.txt > DRI.tsv
 
 #-------------------------------------------------------------------------
-### DAPC (does hot handle missing data, imputation is done with beagle)
+### PCA (does hot handle missing data, imputation is done with beagle)
 
 beagle gt=DurumWheat_20perPop.vcf out=DurumWheat_20perPop_imputed
 gzip -d DurumWheat_20perPop_imputed.vcf.gz
