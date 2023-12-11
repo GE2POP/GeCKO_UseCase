@@ -14,18 +14,18 @@ set -euo
 # please uncompress them
 # 1. variant_calling_converted.vcf
 # 2. 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf (48 759 SNPs)
-# 3. zones.bed
+# 3. auto_zones.bed
 # 4. labels_groups.txt
 
 # needed envirnoment
 ### --------------------------------------------------------------
 # the two conda environment should be create (once) using
 # conda env create --file conda_UC_GECKO.yml
-# conda env create --file conda_UC_GECKO.yml
+# conda env create --file conda_UC_GECKO_R.yml
 
 cp variant_calling_converted.vcf  DurumWheat_GeCKO_unfiltered_onZavitan.vcf
 cp 04__Genotype_Locus1_Sample_Locus2_Filtered.vcf DurumWheat_GeCKO_filtered_onZavitan.vcf
-cp zones.bed DW_tarteged_zones.bed
+cp auto_zones.bed DW_tarteged_zones.bed
 
 
 # 1. create filtered dataset based on sample size
