@@ -48,10 +48,10 @@ cp auto_zones.bed DW_tarteged_zones.bed
 #6 538 SNPs
 
 # --------------------------------------------------------------
-### 2. Compute popultation genetic stats using egglib 
+### 2. Compute population genetic stats using egglib 
 
 python egglib_vcf_stats_lseff.py --bed_file DW_tarteged_zones.bed --vcf_file_raw DurumWheat_GeCKO_unfiltered_onZavitan.vcf --vcf_file DurumWheat_10perPop.vcf --labels_file labels_groups.txt
-mv egglib_stats.txt egglib_stats_10perPop.txt; rm egglib_stats_pairwise.txt egglib_outliers.txt
+mv egglib_stats.txt egglib_stats_10perPop.txt; mv egglib_stats_pairwise.txt egglib_stats_pairwise_10perPop.txt ; rm egglib_outliers.txt
 
 python egglib_vcf_stats_lseff.py --bed_file DW_tarteged_zones.bed --vcf_file_raw DurumWheat_GeCKO_unfiltered_onZavitan.vcf --vcf_file DurumWheat_10DD_10DC.vcf --labels_file labels_groups.txt
 mv egglib_stats.txt egglib_stats_10DD_10DC.txt; rm egglib_stats_pairwise.txt egglib_outliers.txt
