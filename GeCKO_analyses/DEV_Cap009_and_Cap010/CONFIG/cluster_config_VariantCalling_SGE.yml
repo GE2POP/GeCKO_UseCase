@@ -1,8 +1,8 @@
 __default__:
     pe: smp 1
     h_vmem: 10G
-    q: short.q
-    N: DC.{rule}
+    q: long.q
+    N: VC.{rule}
     o: Logs_VariantCallingWorkflow/{rule}.$JOB_ID.out.txt
     e: Logs_VariantCallingWorkflow/{rule}.$JOB_ID.err.txt
    
@@ -15,12 +15,17 @@ HaplotypeCaller:
 
 GenomicsDBImport:
     pe: smp {threads}
+    q: bigmem.q
+    h_vmem: 27G
 
 Plot_GVCFVariablesHistograms:
-    h_vmem: 30G
+    q: bigmem.q
+    h_vmem: 50G
 
 Plot_GVCFDPBoxplot:
-    h_vmem: 30G
+    q: bigmem.q
+    h_vmem: 50G
     
 Plot_GVCFVariantsAlongGenome:
-    h_vmem: 30G
+    q: bigmem.q
+    h_vmem: 50G

@@ -1,27 +1,26 @@
 ### GENERAL VARIABLES ###
 PAIRED_END: TRUE
 CREATE_SUB_BAMS: TRUE
-MAPPING_SUBFOLDER: ""
+MAPPING_SUBFOLDER: "ZAVITAN_REMAPPING_20231204"
 
 
 ### INPUT FILES ###
 # Path(s) to the directory or directories containing the trimmed fastq files to be mapped. To provide several directories, separate them with spaces.
  # If left blank, the workflow will assume the fastq files are in WORKFLOWS_OUTPUTS/DATA_CLEANING/DEMULT_TRIM, which is the path to our DATA_CLEANING workflow output files. 
-TRIM_DIRS: "../DEV_Cap009.2b/WORKFLOWS_OUTPUTS/DATA_CLEANING/DEMULT_TRIM ../DEV_Cap010.2/WORKFLOWS_OUTPUTS/DATA_CLEANING/DEMULT_TRIM"
+TRIM_DIRS: "/home/ardissonm/scratch/DEV/ANALYSES_2022_WORKFLOW/DEV_Cap009.2b/WORKFLOWS_OUTPUTS/DATA_CLEANING/DEMULT_TRIM /home/ardissonm/scratch/DEV/ANALYSES_2022_WORKFLOW/DEV_Cap010.2/WORKFLOWS_OUTPUTS/DATA_CLEANING/DEMULT_TRIM"
 
 # Path to the reference file in fasta format (must end with .fa, .fas or .fasta).
-REFERENCE: "~/Triticum_dicoccoides.WEWSeq_v.2.0.dna_20210617.fasta"
+REFERENCE: "/home/ardissonm/projects/GE2POP/TRITICUM/REFERENCES/ZAVITAN/Triticum_dicoccoides.WEWSeq_v.2.0.dna_20210617.fasta"
 
 # Path to the bed file listing targeted zones. Optionnal: can be left blank ("").
 BED: ""
 BED_MIN_MEAN_COV: "1"
-BED_MAX_DIST: "100"
+BED_MIN_DIST: "100"
 BED_MIN_LENGTH: "100"
 
 
 ### MAPPING PARAMETERS ###
 MAPPER: "bwa-mem2_mem"
-REMOVE_DUP: TRUE
 SEQUENCING_TECHNOLOGY: "ILLUMINA"
 EXTRA_MAPPER_OPTIONS: "-t 6 -M"
 MAPPING_CPUS_PER_TASK: 12
@@ -29,4 +28,14 @@ MAPPING_CPUS_PER_TASK: 12
 PICARD_MARKDUPLICATES_OPTIONS: "-MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 1000"
 PICARD_MARKDUPLICATES_JAVA_OPTIONS: ""
 
-SAMTOOLS_INDEX_OPTIONS: "" 
+SAMTOOLS_INDEX_OPTIONS: "" # param "-c" is already included in the samtools command per default
+
+
+### BAM FILTERING ###
+## After the first mapping
+REMOVE_DUP: TRUE
+# options passed to 'samtools view'
+SAMTOOLS_VIEW_FILTERS1: "-F 256 -F 2048 -f 2"
+
+## After the remapping (options passed to 'samtools view'). If CREATE_SUB_BAMS is set to FALSE, leave blank (the command will not be called anyway)
+SAMTOOLS_VIEW_FILTERS2: "-q 30"

@@ -15,13 +15,17 @@ HaplotypeCaller:
 
 GenomicsDBImport:
     cpus-per-task: "{threads}"
-    
+    partition: agap_bigmem
+    mem-per-cpu: 27G
+  
 Plot_GVCFVariablesHistograms:
-    mem-per-cpu: 30G
+    partition: agap_bigmem
+    mem-per-cpu: 50G
     
 Plot_GVCFDPBoxplot:
-    mem-per-cpu: 30G
+    partition: agap_bigmem
+    mem-per-cpu: 50G
     
 Plot_GVCFVariantsAlongGenome:
-    mem-per-cpu: 30G
-
+    partition: agap_bigmem
+    mem-per-cpu: 50G

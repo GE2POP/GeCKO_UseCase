@@ -14,4 +14,3 @@ Plot_FinalVCFDPBoxplot:
     
 Plot_FinalVCFVariantsAlongGenome:
     mem-per-cpu: 30G
-    
