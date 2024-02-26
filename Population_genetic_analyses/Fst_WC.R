@@ -66,12 +66,12 @@ mean_DD_DC_chr4B=mean(chr4B$FST_DD_DC, na.rm=TRUE)
 
 pdf("Fst_scan_4B_DD_DC.pdf")
 ggplot(data=chr4B, aes(x=start_contigs, y=FST_DD_DC, group=contigs))+
-  geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("red1","grey70"))+
-  scale_size_manual(values=c(2,1))+
+  geom_point(aes(color = contigs, shape = factor(contigs), size = contigs))+
+  scale_color_manual(values=c("magenta3","grey70"))+
+  scale_shape_manual(values=c(17, 19))+
+  scale_size_manual(values=c(2, 1))+
   theme_light()+
   geom_hline(yintercept=seuilDD_DC_chr4B_0.95,linetype="dashed", color = "red")+
-  geom_hline(yintercept=mean_DD_DC_chr4B,linetype="dashed", color = "black")+
   scale_x_continuous(name="physical position", limits=c(0,870000000))+
   scale_y_continuous(name="FST", limits=c(-0.1,1))+
   theme(axis.text.x= element_text(size=15))+
@@ -94,12 +94,12 @@ mean_DC_DP_chr4B=mean(chr4B$FST_DC_DP, na.rm=TRUE)
 
 pdf("Fst_scan_4B_DC_DP.pdf")
 ggplot(data=chr4B, aes(x=start_contigs, y=FST_DC_DP, group=contigs))+
-  geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("red1","grey70"))+
-  scale_size_manual(values=c(2,1))+
+  geom_point(aes(color = contigs, shape = factor(contigs), size = contigs))+
+  scale_color_manual(values=c("magenta3","grey70"))+
+  scale_shape_manual(values=c(17, 19))+
+  scale_size_manual(values=c(2, 1))+
   theme_light()+
   geom_hline(yintercept=seuilDC_DP_chr4B_0.95,linetype="dashed", color = "red")+
-  geom_hline(yintercept=mean_DC_DP_chr4B,linetype="dashed", color = "black")+
   scale_x_continuous(name="physical position", limits=c(0,870000000))+
   scale_y_continuous(name="FST", limits=c(-0.1,1))+
   theme(axis.text.x= element_text(size=15))+
@@ -122,12 +122,12 @@ mean_DP_DE_chr4B=mean(chr4B$FST_DP_DE, na.rm=TRUE)
 
 pdf("Fst_scan_4B_DP_DE.pdf")
 ggplot(data=chr4B, aes(x=start_contigs, y=FST_DP_DE, group=contigs))+
-  geom_point(aes(color = contigs, size=contigs))+ 
-  scale_color_manual(values=c("red1","grey70"))+
-  scale_size_manual(values=c(2,1))+
+  geom_point(aes(color = contigs, shape = factor(contigs), size = contigs))+
+  scale_color_manual(values=c("magenta3","grey70"))+
+  scale_shape_manual(values=c(17, 19))+
+  scale_size_manual(values=c(2, 1))+
   theme_light()+
   geom_hline(yintercept=seuilDP_DE_chr4B_0.95,linetype="dashed", color = "red")+
-  geom_hline(yintercept=mean_DP_DE_chr4B,linetype="dashed", color = "black")+
   scale_x_continuous(name="physical position", limits=c(0,870000000))+
   scale_y_continuous(name="FST", limits=c(-0.1,1))+
   theme(axis.text.x= element_text(size=15))+
@@ -164,7 +164,6 @@ ggplot(data=chr5A, aes(x=start_contigs, y=FST_DD_DC, group=contigs))+
   scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDD_DC_chr5A_0.95,linetype="dashed", color = "red")+
-  geom_hline(yintercept=mean_DD_DC_chr5A,linetype="dashed", color = "black")+
   scale_x_continuous(name="physical position", limits=c(0,870000000))+
   scale_y_continuous(name="FST", limits=c(-0.1,1))+
   theme(axis.text.x= element_text(size=15))+
@@ -192,7 +191,6 @@ ggplot(data=chr5A, aes(x=start_contigs, y=FST_DC_DP, group=contigs))+
   scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDC_DP_chr5A_0.95,linetype="dashed", color = "red")+
-  geom_hline(yintercept=mean_DC_DP_chr5A,linetype="dashed", color = "black")+
   scale_x_continuous(name="physical position", limits=c(0,870000000))+
   scale_y_continuous(name="FST", limits=c(-0.1,1))+
   theme(axis.text.x= element_text(size=15))+
@@ -220,7 +218,6 @@ ggplot(data=chr5A, aes(x=start_contigs, y=FST_DP_DE, group=contigs))+
   scale_size_manual(values=c(2,1))+
   theme_light()+
   geom_hline(yintercept=seuilDP_DE_chr5A_0.95,linetype="dashed", color = "red")+
-  geom_hline(yintercept=mean_DP_DE_chr5A,linetype="dashed", color = "black")+
   scale_x_continuous(name="physical position", limits=c(0,870000000))+
   scale_y_continuous(name="FST", limits=c(-0.1,1))+  
   theme(axis.text.x= element_text(size=15))+
