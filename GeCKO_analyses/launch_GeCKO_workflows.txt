@@ -1,17 +1,17 @@
 
 # DataCleaning
 cd DEV_Cap009.2b
-sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --workflow DataCleaning --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+sbatch --partition=agap_normal --mem=10G --job-name=DC9 --wrap="runGeCKO.sh --workflow DataCleaning --config-file CONFIG/config_DataCleaning.yml --cluster-profile CONFIG/DC_CLUSTER_PROFILE_SLURM --jobs 50"
 
 cd ../DEV_Cap010.2
-sbatch --partition=agap_normal --mem=10G --job-name=DC --wrap="runGeCKO.sh --workflow DataCleaning --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+sbatch --partition=agap_normal --mem=10G --job-name=DC10 --wrap="runGeCKO.sh --workflow DataCleaning --config-file CONFIG/config_DataCleaning.yml --cluster-profile CONFIG/DC_CLUSTER_PROFILE_SLURM --jobs 50"
 
 # ReadMapping
 cd ../DEV_Cap009_and_Cap010
-sbatch --partition=agap_long --mem=10G --job-name=RM --wrap="runGeCKO.sh --workflow ReadMapping --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+sbatch --partition=agap_long --mem=10G --job-name=RM --wrap="runGeCKO.sh --workflow ReadMapping --config-file CONFIG/config_ReadMapping.yml --cluster-profile CONFIG/RM_CLUSTER_PROFILE_SLURM --jobs 50"
 
 # VariantCalling
-sbatch --partition=agap_long --mem=10G --job-name=VC --wrap="runGeCKO.sh --workflow VariantCalling --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+sbatch --partition=agap_long --mem=10G --job-name=VC --wrap="runGeCKO.sh --workflow VariantCalling --config-file CONFIG/config_VariantCalling.yml --cluster-profile CONFIG/VC_CLUSTER_PROFILE_SLURM --jobs 50"
 
 # VcfFiltering
-sbatch --partition=agap_normal --mem=10G --job-name=VF --wrap="runGeCKO.sh --workflow VcfFiltering --workflow-path ~/GECKO --jobs 50 --job-scheduler SLURM"
+sbatch --partition=agap_normal --mem=10G --job-name=VF --wrap="runGeCKO.sh --workflow VcfFiltering --config-file CONFIG/config_VcfFiltering.yml --cluster-profile CONFIG/VF_CLUSTER_PROFILE_SLURM --jobs 50"

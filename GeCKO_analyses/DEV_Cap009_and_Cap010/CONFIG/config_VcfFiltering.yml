@@ -1,12 +1,12 @@
 ### GENERAL VARIABLES ###
 ## If you want to separate results from different filtering parameters, provide a name for an extra folder to create in the VCF_FILTERING output folder. Otherwise leave blank ("").
-FILTERING_SUBFOLDER: "REMAPPING_FILTERS_DP5_GQ15_QUAL30_SNP_FIS08_20231204"
+FILTERING_SUBFOLDER: "REMAPPING_FILTERS_DP5_GQ15_QUAL30_SNP_FIS08"
 
 
 #### INPUT FILES ###
 
 ## Provide the VCF file to be filtered. The vcf need to be gzipped
-VCF_FILE: "/home/ardissonm/scratch/DEV/ANALYSES_2022_WORKFLOW/DEV_Cap009_and_Cap010/WORKFLOWS_OUTPUTS/VARIANT_CALLING/ZAVITAN_ZONES_20231204/GENOTYPE_GVCFS/variant_calling_converted.vcf.gz"
+VCF_FILE: "/home/ardissonm/scratch/DEV/ANALYSES_2022_WORKFLOW/DEV_Cap009_and_Cap010/WORKFLOWS_OUTPUTS/VARIANT_CALLING/ZAVITAN_ZONES/GENOTYPE_GVCFS/variant_calling_converted.vcf.gz"
 
 
 ### VCF FILTERING PARAMETERS ###
